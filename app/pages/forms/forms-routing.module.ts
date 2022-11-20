@@ -23,16 +23,6 @@ const routes: Routes = [
       {
         path: 'layouts',
         component: FormLayoutsComponent,
-        children: [
-          {
-            path: '',
-            redirectTo: 'tab1',
-            pathMatch: 'full',
-          },
-          {
-            path: 'tab1',
-          },          
-        ]
       },
       {
         path: 'buttons',

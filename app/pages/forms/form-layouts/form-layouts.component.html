@@ -37,6 +37,17 @@
                       <input type="text" nbInput fullWidth id="inputCalificacion">
                     </div>
                   </div>
+                  <div class="form-group row">
+                    <label for="inputIdioma" class="label col-sm-3 col-form-label">Idioma</label>
+                    <div class="col-sm-9">
+                      <nb-select fullWidth placeholder="Idioma del video">
+                        <nb-option value="1">Español</nb-option>
+                        <nb-option value="2">Ingles</nb-option>
+                        <nb-option value="3">Frances</nb-option>
+                        <nb-option value="4">Japones</nb-option>
+                      </nb-select>
+                    </div>
+                  </div>
               </nb-card-body>
             </nb-card>
         </div>
@@ -102,106 +113,279 @@
         <button type="submit" nbButton status="primary">Guardar</button>
     </div>
   </form>
-    
   </nb-card-body>
 </nb-card>
-<!-- 
-<nb-card>
-  <nb-card-body>
-    <div class="row text-center">
-      <div class="col">
-        <nb-card>
-          <nb-card-header class="">Lista videos</nb-card-header>
-          <nb-card-body>
-              <table class="table table-light table-striped">
-              <thead>
-                <tr>
-                  <th scope="col">ISAN</th>
-                  <th scope="col">Video</th>
-                  <th scope="col">Fecha de envio</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td>Larry</td>
-                  <td>the Bird</td>
-                </tr>
-            </tbody>
-          </table>
-          </nb-card-body>
-        </nb-card>
-      </div>
-    </div>
-  </nb-card-body>
-</nb-card> -->
-
 <nb-card>
   <nb-card-header>
     Gestion de videos
   </nb-card-header>
-
   <nb-card-body>
     <ng2-smart-table [settings]="settings" (deleteConfirm)="onDeleteConfirm($event)">
-
     </ng2-smart-table>
   </nb-card-body>
 </nb-card>
 
-<!-- <nb-card>
+<nb-card>
   <nb-card-header>
    <h3>Consultas videos Filtros RFC</h3> 
-  </nb-card-header> -->
-
-  <!-- <nb-card-body> -->
+  </nb-card-header>
+  <nb-card-body>
     <div class="col-12">
-      <nb-card>
-        <nb-tabset>
-          <nb-tab tabTitle="RFC1">
-            <div class="col-md-12 col-lg-6 col-xxxl-6">
-              <nb-card class="list-card" size="small">
-                <nb-list>
-                  <nb-list-item *ngFor="let user of users">
-                    <nb-user [name]="user.name" [title]="user.title">
-                    </nb-user>
-                  </nb-list-item>
-                </nb-list>
+      <form action="">
+         <h4 class="row mb-3">Filtros Videos</h4>
+       <nb-card>
+        <nb-card-body>
+            <nb-select placeholder="Tiempo de duración" status="primary" class="mb-4 mr-3">
+              <nb-option value="1">120 Min</nb-option>
+              <nb-option value="2">80 Min</nb-option>
+              <nb-option value="3">70 Min</nb-option>
+              <nb-option value="4">60 Min</nb-option>
+            </nb-select>
+            <input type="text" nbInput fieldSize="medium" placeholder="Rango fechas" [nbDatepicker]="formpicker">
+            <nb-rangepicker #formpicker></nb-rangepicker>          
+            <nb-card class="ml-3">
+              <nb-card-header>Categorias:</nb-card-header>
+                <nb-card-body>
+                  <nb-radio-group>
+                    <nb-radio
+                      *ngFor="let option of categorias"
+                      [value]="option">
+                      {{ option.label }}
+                    </nb-radio>
+                  </nb-radio-group>
+                </nb-card-body>
               </nb-card>
+              <nb-card class="ml-3">
+                <nb-card-header>Calificación:</nb-card-header>
+                  <nb-card-body>
+                    <nb-radio-group>
+                      <nb-radio
+                        *ngFor="let option of calificacion"
+                        [value]="option">
+                        {{ option.label }}
+                      </nb-radio>
+                    </nb-radio-group>
+                  </nb-card-body>
+                </nb-card>
+         
+        </nb-card-body>
+      </nb-card>
+      </form>
+      
+      <nb-card>
+        <nb-tabset fullWidth>
+          
+          <nb-tab tabTitle="RFC1">
+            <div class="row text-center">
+              <div class="col">
+                <nb-card>
+                  <nb-card-body>
+                      <table class="table table-light table-striped table-hover">
+                      <thead>
+                        <tr>
+                          <th scope="col"><h5>No.</h5></th>
+                          <th scope="col"><h5>Video</h5></th>
+                          <th scope="col"><h5>ISAN</h5></th>
+                          <th scope="col"><h5>Titulo</h5></th>
+                          <th scope="col"><h5>Calificación</h5></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">1</th>
+                          <td><div class="imagen-peli"><img src="../../../../assets/images/2.png" alt=""></div></td>
+                          <td>Viaje a marte</td>
+                          <td>123456</td>
+                          <td>5</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">2</th>
+                          <td><div class="imagen-peli"><img src="../../../../assets/images/1.png" alt=""></div></td>
+                          <td>Interestelar</td>
+                          <td>123456</td>
+                          <td>10</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">3</th>
+                          <td><div class="imagen-peli"><img src="../../../../assets/images/3.png" alt=""></div></td>
+                          <td>Viaje a marte</td>
+                          <td>123456</td>
+                          <td>9</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">4</th>
+                          <td><div class="imagen-peli"><img src="../../../../assets/images/4.png" alt=""></div></td>
+                          <td>Viaje a marte</td>
+                          <td>123456</td>
+                          <td>7</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">5</th>
+                          <td><div class="imagen-peli"><img src="../../../../assets/images/5.png" alt=""></div></td>
+                          <td>Viaje a marte</td>
+                          <td>123456</td>
+                          <td>8</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">6</th>
+                          <td><div class="imagen-peli"><img src="../../../../assets/images/6.png" alt=""></div></td>
+                          <td>Viaje a marte</td>
+                          <td>123456</td>
+                          <td>7</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">6</th>
+                          <td><div class="imagen-peli"><img src="../../../../assets/images/7.png" alt=""></div></td>
+                          <td>Viaje a marte</td>
+                          <td>123456</td>
+                          <td>7</td>
+                        </tr>
+                    </tbody>
+                  </table>
+                  </nb-card-body>
+                </nb-card>
+              </div>
             </div>
           </nb-tab>
           <nb-tab tabTitle="RFC2">
-            <span>Content #2
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi vitae adipisci repudiandae maiores vero. Aut fugit quis nam eaque. Excepturi quasi, a ullam maiores exercitationem magni perferendis accusantium blanditiis adipisci.
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae, minus. Maiores ullam id laborum fugit! Vero, nostrum cum maiores fuga minus adipisci veniam repudiandae mollitia! Laboriosam saepe porro vel dolorum.
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam non at excepturi, velit fuga accusantium, omnis et dolorem perspiciatis, provident beatae modi architecto? Magni reprehenderit consectetur illo eum repudiandae recusandae.
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam rem eum omnis dolore molestias facere consequatur est doloribus sit ea laboriosam architecto debitis in consequuntur repudiandae, nesciunt aperiam minus cumque.
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos esse nobis quae delectus nostrum perferendis rem magnam nam distinctio voluptatibus eligendi consequatur dolorum, ducimus ipsum officia quod? Enim, soluta corrupti!
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias, sunt iure dolores et modi asperiores eligendi deserunt vitae sapiente in maiores quidem adipisci possimus accusamus temporibus magnam obcaecati harum laudantium.
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus animi temporibus perspiciatis, assumenda deleniti nemo? Quaerat, quas reprehenderit quos ullam, tempore consectetur vero ea ratione repudiandae, esse a. Tempora, repudiandae.
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur dolorem cumque magni, voluptate saepe libero, tempore est harum expedita tempora perferendis, at exercitationem ex doloribus ratione quod doloremque adipisci impedit.
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quibusdam eaque illum molestiae fugiat quis asperiores incidunt temporibus optio voluptatibus labore amet debitis ut facilis ad id assumenda ipsam, mollitia eum!
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Error mollitia iste iure delectus rem reiciendis veritatis consequatur sequi vero doloremque tempora eaque quibusdam, quos optio, ab eos minus voluptate excepturi!
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, porro? Iusto voluptatem repellendus sapiente ratione at, nam temporibus laboriosam facilis veniam, distinctio delectus aspernatur libero illum. Aspernatur, error voluptates? Ut?
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima aut illo debitis consequuntur aperiam nulla architecto doloribus! A laboriosam doloribus, est quo non maxime eius qui repudiandae, cum quas ipsam.
-
-            </span>
+            <nb-card>
+              <nb-card-body>
+                  <table class="table table-light table-striped table-hover">
+                  <thead>
+                    <tr>
+                      <th scope="col"><h5>No.</h5></th>
+                      <th scope="col"><h5>Video</h5></th>
+                      <th scope="col"><h5>ISAN</h5></th>
+                      <th scope="col"><h5>Titulo</h5></th>
+                      <th scope="col"><h5>Calificación</h5></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td><div class="imagen-peli"><img src="../../../../assets/images/2.png" alt=""></div></td>
+                      <td>Viaje a marte</td>
+                      <td>123456</td>
+                      <td>5</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">2</th>
+                      <td><div class="imagen-peli"><img src="../../../../assets/images/1.png" alt=""></div></td>
+                      <td>Interestelar</td>
+                      <td>123456</td>
+                      <td>10</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">3</th>
+                      <td><div class="imagen-peli"><img src="../../../../assets/images/3.png" alt=""></div></td>
+                      <td>Viaje a marte</td>
+                      <td>123456</td>
+                      <td>9</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">4</th>
+                      <td><div class="imagen-peli"><img src="../../../../assets/images/4.png" alt=""></div></td>
+                      <td>Viaje a marte</td>
+                      <td>123456</td>
+                      <td>7</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">5</th>
+                      <td><div class="imagen-peli"><img src="../../../../assets/images/5.png" alt=""></div></td>
+                      <td>Viaje a marte</td>
+                      <td>123456</td>
+                      <td>8</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">6</th>
+                      <td><div class="imagen-peli"><img src="../../../../assets/images/6.png" alt=""></div></td>
+                      <td>Viaje a marte</td>
+                      <td>123456</td>
+                      <td>7</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">6</th>
+                      <td><div class="imagen-peli"><img src="../../../../assets/images/7.png" alt=""></div></td>
+                      <td>Viaje a marte</td>
+                      <td>123456</td>
+                      <td>7</td>
+                    </tr>
+                </tbody>
+              </table>
+              </nb-card-body>
+            </nb-card>
           </nb-tab>
           <nb-tab tabTitle="RFC3">
-            <span>Content #3</span>
+            <nb-card>
+              <nb-card-body>
+                  <table class="table table-light table-striped table-hover">
+                  <thead>
+                    <tr>
+                      <th scope="col"><h5>No.</h5></th>
+                      <th scope="col"><h5>Video</h5></th>
+                      <th scope="col"><h5>ISAN</h5></th>
+                      <th scope="col"><h5>Titulo</h5></th>
+                      <th scope="col"><h5>Calificación</h5></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td><div class="imagen-peli"><img src="../../../../assets/images/2.png" alt=""></div></td>
+                      <td>Viaje a marte</td>
+                      <td>123456</td>
+                      <td>5</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">2</th>
+                      <td><div class="imagen-peli"><img src="../../../../assets/images/1.png" alt=""></div></td>
+                      <td>Interestelar</td>
+                      <td>123456</td>
+                      <td>10</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">3</th>
+                      <td><div class="imagen-peli"><img src="../../../../assets/images/3.png" alt=""></div></td>
+                      <td>Viaje a marte</td>
+                      <td>123456</td>
+                      <td>9</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">4</th>
+                      <td><div class="imagen-peli"><img src="../../../../assets/images/4.png" alt=""></div></td>
+                      <td>Viaje a marte</td>
+                      <td>123456</td>
+                      <td>7</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">5</th>
+                      <td><div class="imagen-peli"><img src="../../../../assets/images/5.png" alt=""></div></td>
+                      <td>Viaje a marte</td>
+                      <td>123456</td>
+                      <td>8</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">6</th>
+                      <td><div class="imagen-peli"><img src="../../../../assets/images/6.png" alt=""></div></td>
+                      <td>Viaje a marte</td>
+                      <td>123456</td>
+                      <td>7</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">6</th>
+                      <td><div class="imagen-peli"><img src="../../../../assets/images/7.png" alt=""></div></td>
+                      <td>Viaje a marte</td>
+                      <td>123456</td>
+                      <td>7</td>
+                    </tr>
+                </tbody>
+              </table>
+              </nb-card-body>
+            </nb-card>
           </nb-tab>
         </nb-tabset>
       </nb-card>
     </div>
-  <!-- </nb-card-body>
-</nb-card> -->
+  </nb-card-body>
+</nb-card>
 

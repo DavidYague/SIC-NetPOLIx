@@ -61,23 +61,23 @@ export class FormLayoutsComponent implements OnInit {
     },
     columns: {
       id: {
-        title:'Cedula', 
+        title:'No.', 
         type: 'number',
       },
       name: {
-        title: 'Nombre y Apellido',
+        title: 'Titulo',
         type: 'string',
       },
       referencia: {
-        title: 'Referenciado',
+        title: 'ISAN',
         type: 'string',
       },
       puntosCant: {
-        title: 'Puntos acumulados',
+        title: 'Categoria',
         type: 'number',
       },
       fechaRegistro: {
-        title: 'Fecha de ingreso',
+        title: 'Idioma',
         type: 'date',
       },
     },
@@ -91,23 +91,17 @@ export class FormLayoutsComponent implements OnInit {
     }
   }
 
-  users: { name: string, title: string }[] = [
-    { name: 'Carla Espinosa', title: 'Nurse' },
-    { name: 'Bob Kelso', title: 'Doctor of Medicine' },
-    { name: 'Janitor', title: 'Janitor' },
-    { name: 'Perry Cox', title: 'Doctor of Medicine' },
-    { name: 'Ben Sullivan', title: 'Carpenter and photographer' },
-  ];
-  tabs: any[] = [
-    {
-      title: 'Route tab #1',
-      route: '/pages/forms/forms-layouts/tab1',
-    },
-    {
-      title: 'Route tab #2',
-      route: '/pages/forms/forms-layouts/tab2',
-    },
+  categorias = [
+    { label: 'Drama' },
+    { label: 'Ficción' },
+    { label: 'Comedia' },
+    { label: 'Terror' },
   ];
 
-
+  calificacion = [
+    { label: '5.0' },
+    { label: '4.7' },
+    { label: '4.2' },
+    { label: '4.4' },
+  ];
 }

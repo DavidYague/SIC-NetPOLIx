@@ -48,6 +48,7 @@ import { FormsModule as ngFormsModule } from '@angular/forms';
     NbTreeGridModule,
     Ng2SmartTableModule,
     NbTabsetModule,
+    NbSelectModule,
   ],
   declarations: [
     FormsComponent,
