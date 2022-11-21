@@ -16,18 +16,18 @@ const routes: Routes = [
         path: 'inicio',
         component: InicioComponent,
       },
-      {
-        path: 'series',
-        component: SeriesComponent,
-      },
-      {
-        path: 'peliculas',
-        component: PeliculasComponent,
-      },
-      {
-        path: 'colecciones',
-        component: ColeccionesComponent,
-      },
+      // {
+      //   path: 'series',
+      //   component: SeriesComponent,
+      // },
+      // {
+      //   path: 'peliculas',
+      //   component: PeliculasComponent,
+      // },
+      // {
+      //   path: 'colecciones',
+      //   component: ColeccionesComponent,
+      // },
     ],
   },
 ];
